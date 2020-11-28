@@ -48,7 +48,7 @@ public class Country : MonoBehaviour
         if(gm.moneyValueNumber >= shop.negotiatorPrice && !negotiatorInCountry && border.percentageValue == 100)
         {
             gm.moneyValueNumber -= shop.negotiatorPrice;
-            negotiator = Instantiate(shop.traderPrefab, border.transform.position + new Vector3(-0.2f, 0.0f), Quaternion.identity);
+            negotiator = Instantiate(shop.negotiatorPrefab, border.transform.position + new Vector3(-0.2f, 0.0f), Quaternion.identity);
             negotiatorInCountry = true;
             float time = Random.Range(2.0f, 6.0f);
             StartCoroutine(RepairBorder(time));
