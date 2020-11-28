@@ -5,26 +5,35 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public UnityEngine.UI.Text moneyValue;
+    public UnityEngine.UI.RawImage FinalSlide;
+    public UnityEngine.UI.Text WonText;
+    public UnityEngine.UI.Text LoseText;
 
     public float moneyValueNumber;
 
-    private string currency = " szekle";
-
     private Country[] AllCountries;
     private int countriesNumber;
-    private bool won;
+    private bool won = false;
+    private bool lose = false;
 
     void Start()
     {
-        moneyValue.text = "0 szekli";
+        moneyValue.text = "0";
         AllCountries = FindObjectsOfType<Country>();
         countriesNumber = AllCountries.Length;
+        FinalSlide.gameObject.SetActive(false);
+        WonText.gameObject.SetActive(false);
+        LoseText.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        moneyValue.text = Mathf.Round(moneyValueNumber) + currency;
-        CheckWin();
+        moneyValue.text = Mathf.Round(moneyValueNumber).ToString();
+        if(!won && !lose)
+        {
+            CheckWin();
+            CheckLose();
+        }      
     }
 
     void CheckWin()
@@ -38,11 +47,24 @@ public class GameManager : MonoBehaviour
         if(successCountries == countriesNumber)
         {
             won = true;
+            FinalSlide.gameObject.SetActive(true);
+            WonText.gameObject.SetActive(true);
         }
     }
 
     void CheckLose()
     {
-
+        int bordersBuilt = 0;
+        foreach(Country country in AllCountries)
+        {
+            if (country.border.percentageValue == 100.0f)
+                bordersBuilt++;
+        }
+        if(bordersBuilt == 8)
+        {
+            lose = true;
+            FinalSlide.gameObject.SetActive(true);
+            LoseText.gameObject.SetActive(true);
+        }
     }
 }

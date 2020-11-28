@@ -9,16 +9,6 @@ public class ButtonController : MonoBehaviour
     public UnityEngine.UI.Button CitizenButton;
     public SpriteRenderer ButtonsBackground;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void ShowButtons()
     {
         TraderButton.gameObject.SetActive(true);

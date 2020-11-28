@@ -15,7 +15,7 @@ public class BordersController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 5.0f)
+        if (timer > 2.0f)
         {
             RandomBordering();
             timer = 0;
@@ -25,7 +25,7 @@ public class BordersController : MonoBehaviour
     //Uruchamianie losowo co jakiś czas budowania granicy
     void RandomBordering()
     {
-        float time = Random.Range(1.0f, 5.0f);
+        float time = Random.Range(1.0f, 3.0f);
         StartCoroutine(BuildBorder(time));
     }
 

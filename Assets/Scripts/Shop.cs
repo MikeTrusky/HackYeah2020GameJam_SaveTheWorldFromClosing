@@ -9,9 +9,9 @@ public class Shop : MonoBehaviour
     public GameObject negotiatorPrefab;
     public GameObject citizenPrefab;
 
-    public float traderPrice = 100;
-    public float negotiatorPrice = 300;
-    public float citizenPrice = 150;
+    public float traderPrice = 4000;
+    public float negotiatorPrice = 5000;
+    public float citizenPrice = 6000;
 
     private GameManager gm;
     private BordersController bc;
@@ -20,14 +20,5 @@ public class Shop : MonoBehaviour
     {
         gm = FindObjectOfType<GameManager>();
         bc = FindObjectOfType<BordersController>();
-    }
-
-    public void BuyTrader()
-    {
-        //if(gm.f_moneyValue >= traderPrice)
-        //{
-        //    gm.f_moneyValue -= traderPrice;
-        //    Instantiate(traderPrefab, bc.allBorders[0].transform.position, Quaternion.identity);
-        //}
     }
 }

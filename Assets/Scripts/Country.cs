@@ -81,6 +81,5 @@ public class Country : MonoBehaviour
             Destroy(negotiator.gameObject);
             negotiatorInCountry = false;
         }
-        Debug.Log(success);
     }
 }
