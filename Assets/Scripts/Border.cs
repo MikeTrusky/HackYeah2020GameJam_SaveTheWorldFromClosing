@@ -7,6 +7,8 @@ public class Border : MonoBehaviour
     public UnityEngine.UI.Text percentage;
     public float percentageValue;
 
+    private bool beeped = false;
+
     private SpriteRenderer border;
     private float transparencyAddValue = 0.0f;
     private float transparencyTimeDivider = 10;
@@ -41,6 +43,7 @@ public class Border : MonoBehaviour
         transparencyAddValue = 0.0f;
         border.color = new Color(border.color.r, border.color.g, border.color.b, transparencyAddValue);
         CalculatePercentageOfBorder(0);
+        beeped = false;
     }
 
     void CalculatePercentageOfBorder(float transparencyValue)
@@ -51,5 +54,10 @@ public class Border : MonoBehaviour
         if (percentageValue == 0) percentage.color = originalPercentageTextColor;
         if (percentageValue > 0 && percentageValue < 60.0f) percentage.color = alarmPercentageTextColor;
         if (percentageValue > 60.0f && percentageValue <= 100.0f) percentage.color = finalAlarmPercentageTextColor;
+        if(percentageValue == 100.0f && !beeped)
+        {
+            GetComponent<AudioSource>().Play();
+            beeped = true;
+        }
     }
 }

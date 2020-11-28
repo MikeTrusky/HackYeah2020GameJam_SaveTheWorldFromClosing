@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        AllButtonsController = FindObjectsOfType<ButtonController>();    
+        AllButtonsController = FindObjectsOfType<ButtonController>();
     }
 
     void Update()

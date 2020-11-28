@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public UnityEngine.UI.RawImage FinalSlide;
     public UnityEngine.UI.Text WonText;
     public UnityEngine.UI.Text LoseText;
+    public UnityEngine.UI.Button ReloadButton;
 
     public float moneyValueNumber;
 
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
         FinalSlide.gameObject.SetActive(false);
         WonText.gameObject.SetActive(false);
         LoseText.gameObject.SetActive(false);
+        ReloadButton.gameObject.SetActive(false);
     }
 
     void Update()
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
             won = true;
             FinalSlide.gameObject.SetActive(true);
             WonText.gameObject.SetActive(true);
+            ReloadButton.gameObject.SetActive(true);
         }
     }
 
@@ -65,6 +68,7 @@ public class GameManager : MonoBehaviour
             lose = true;
             FinalSlide.gameObject.SetActive(true);
             LoseText.gameObject.SetActive(true);
+            ReloadButton.gameObject.SetActive(true);
         }
     }
 }

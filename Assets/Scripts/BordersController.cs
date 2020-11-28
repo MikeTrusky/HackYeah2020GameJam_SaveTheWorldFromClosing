@@ -8,10 +8,6 @@ public class BordersController : MonoBehaviour
 
     private float timer = 0;
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         timer += Time.deltaTime;
