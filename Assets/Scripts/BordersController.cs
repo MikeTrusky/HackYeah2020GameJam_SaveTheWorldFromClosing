@@ -15,7 +15,7 @@ public class BordersController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 5.0f)
+        if (timer > 5.0f)
         {
             RandomBordering();
             timer = 0;

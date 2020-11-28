@@ -68,10 +68,11 @@ public class Country : MonoBehaviour
     IEnumerator RepairBorder(float time)
     {
         yield return new WaitForSeconds(time);
-        int success = Random.Range(0, 1);
-        if(success == 1)
+        int success = Random.Range(0, 5);
+        if(success == 1 || success == 2 || success == 3)
         {
             border.percentageValue = 0;
+            border.RefreshBorder();
             Destroy(negotiator.gameObject);
             negotiatorInCountry = false;
         }
